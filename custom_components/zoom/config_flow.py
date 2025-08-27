@@ -15,6 +15,7 @@ from .const import (
     ALL_CONNECTIVITY_STATUSES,
     CONF_CONNECTIVITY_ON_STATUSES,
     CONF_VERIFICATION_TOKEN,
+    DEFAULT_CONNECTIVITY_ON_STATUSES,
     DEFAULT_NAME,
     DOMAIN,
     OAUTH2_AUTHORIZE,
@@ -44,10 +45,7 @@ class ZoomOptionsFlow(config_entries.OptionsFlow):
             data_schema=vol.Schema(
                 {
                     vol.Required(
-                        CONF_CONNECTIVITY_ON_STATUSES,
-                        default=self.config_entry.options[
-                            CONF_CONNECTIVITY_ON_STATUSES
-                        ],
+                        CONF_CONNECTIVITY_ON_STATUSES
                     ): cv.multi_select(ALL_CONNECTIVITY_STATUSES)
                 }
             ),
